@@ -8,7 +8,6 @@
     "nvm": "node -v > .nvmrc",
     "start": "node app.js",
     "dev": "ts-node-dev --respawn"
-
   },
   "keywords": [
     "compose controller",
@@ -28,6 +27,7 @@
     "bluebird": "^3.7.2",
     "bufferedreader": "^1.0.4",
     "busboy": "^1.6.0",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
