@@ -44,7 +44,7 @@ export function checkNotAuthenticated(req, res, next) {
 export async function dynamic_routes(app) {
 
   app.get("/", (req, res, next) => {
-    res.status(200).send(JSON.stringify(req));
+    res.status(200).send('success');
     //  res.render('home');
   });
 
