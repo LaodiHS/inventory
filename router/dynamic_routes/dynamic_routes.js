@@ -77,6 +77,7 @@ export async function dynamic_routes(app) {
 
   app.post("/authenticated", (req, res) => {
     // console.log(req.isAuthenticated());
+    console.log('user--->', req.user)
     if(req.user && req.user[0]){
     const { first, last, age, username, email, phone, postcode, city, housenumber } = req.user[0]
     if (req.isAuthenticated()) {
