@@ -7,10 +7,8 @@
   "scripts": {
     "nvm": "node -v > .nvmrc",
     "start": "node app.js",
-    "dev": "ts-node-dev --respawn",
-    "test": "node unit_tests/unit_tests.js",
-    "build": "tsc",
-    "postinstall": "tsc"
+    "dev": "ts-node-dev --respawn"
+
   },
   "keywords": [
     "compose controller",
