@@ -1,0 +1,1 @@
+{"message":"bad_request","errors":[{"msg":"Invalid value","param":"username","location":"body"},{"msg":"Invalid value","param":"username","location":"body"},{"value":"","msg":"Invalid value","param":"username","location":"body"}]}

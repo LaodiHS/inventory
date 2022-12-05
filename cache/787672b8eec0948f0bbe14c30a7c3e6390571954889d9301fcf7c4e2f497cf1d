@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",async()=>{const t=await axios.post("http://localhost:8080/api",{url:"http://youtube.com",selector:"#root_element"}),o=await t.data;console.log("result ",o)});

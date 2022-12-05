@@ -1,0 +1,17 @@
+{
+    
+    "capturama_service": 
+    
+    {
+
+        "name": "capturama",
+
+        "base_url": "https://capture-image.herokuapp.com/",
+    
+        "api_url": "https://capture-image.herokuapp.com/capture",
+        
+        "Capturama_Access_Token":"IeRVAxA8w6"
+        
+    }   
+
+}

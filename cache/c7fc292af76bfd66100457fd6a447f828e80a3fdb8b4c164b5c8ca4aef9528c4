@@ -1,0 +1,1 @@
+{"message":"bad_request","errors":[{"value":"cnttruc","msg":"Invalid value","param":"password","location":"body"}]}

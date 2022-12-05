@@ -1,0 +1,103 @@
+{
+    "type": "ERR_BAD_REQUEST",
+    "date": 1661022339745,
+    "data": {
+        "file_name": "file:///home/gojos_api/modules/file_system.js",
+        "error": {
+            "message": "Request failed with status code 400",
+            "name": "AxiosError",
+            "config": {
+                "transitional": {
+                    "silentJSONParsing": true,
+                    "forcedJSONParsing": true,
+                    "clarifyTimeoutError": false
+                },
+                "transformRequest": [
+                    null
+                ],
+                "transformResponse": [
+                    null
+                ],
+                "timeout": 0,
+                "xsrfCookieName": "XSRF-TOKEN",
+                "xsrfHeaderName": "X-XSRF-TOKEN",
+                "maxContentLength": -1,
+                "maxBodyLength": -1,
+                "env": {},
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Content-Type": "application/json",
+                    "User-Agent": "axios/0.27.2",
+                    "Content-Length": 40
+                },
+                "method": "post",
+                "url": "https://capture-image.herokuapp.com/capture",
+                "data": "{\"url\":\"http://kyrfhiwmfz.cy/mwmhpmkop\"}"
+            },
+            "code": "ERR_BAD_REQUEST",
+            "status": 400
+        }
+    }
+}
+{
+    "type": "ERR_BAD_RESPONSE",
+    "date": 1661022371914,
+    "data": {
+        "file_name": "file:///home/gojos_api/modules/file_system.js",
+        "error": {
+            "message": "Request failed with status code 503",
+            "name": "AxiosError",
+            "config": {
+                "transitional": {
+                    "silentJSONParsing": true,
+                    "forcedJSONParsing": true,
+                    "clarifyTimeoutError": false
+                },
+                "transformRequest": [
+                    null
+                ],
+                "transformResponse": [
+                    null
+                ],
+                "timeout": 0,
+                "xsrfCookieName": "XSRF-TOKEN",
+                "xsrfHeaderName": "X-XSRF-TOKEN",
+                "maxContentLength": -1,
+                "maxBodyLength": -1,
+                "env": {},
+                "headers": {
+                    "Accept": "application/json, text/plain, */*",
+                    "Content-Type": "application/json",
+                    "User-Agent": "axios/0.27.2",
+                    "Content-Length": 89
+                },
+                "method": "post",
+                "url": "https://capture-image.herokuapp.com/capture",
+                "data": "{\"url\":\"https://ourworldindata.org/world-population-growth\",\"selector\":\".article-titles\"}"
+            },
+            "code": "ERR_BAD_RESPONSE",
+            "status": 503
+        }
+    }
+}{"date":"Saturday, October 8, 2022 at 9:59:36 AM PDT"}
+{"date":"Saturday, October 8, 2022 at 10:00:40 AM PDT"}
+{"date":"Saturday, October 8, 2022 at 8:35:51 PM PDT"}
+{"date":"Saturday, October 8, 2022 at 9:27:55 PM PDT"}
+{"date":"Sunday, October 9, 2022 at 8:00:00 AM PDT"}
+{"date":"Sunday, October 9, 2022 at 8:01:26 AM PDT"}
+{"date":"Sunday, October 9, 2022 at 8:01:53 AM PDT"}
+{"date":"Sunday, October 9, 2022 at 8:04:17 AM PDT"}
+{"date":"Sunday, October 9, 2022 at 8:05:43 AM PDT"}
+{"date":"Sunday, October 9, 2022 at 8:06:17 AM PDT"}
+{"date":"Sunday, October 9, 2022 at 8:07:23 AM PDT"}
+{"date":"Tuesday, October 11, 2022 at 5:41:32 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 1:12:48 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 1:21:27 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 1:25:07 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 1:36:01 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 1:54:28 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 1:55:28 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 2:01:33 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 2:33:17 PM PDT"}
+{"date":"Wednesday, October 12, 2022 at 2:46:01 PM PDT"}
+{"date":"Friday, October 28, 2022 at 11:38:36 AM PDT"}

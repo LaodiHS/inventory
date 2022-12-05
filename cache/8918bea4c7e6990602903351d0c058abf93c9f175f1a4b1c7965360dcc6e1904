@@ -1,0 +1,1 @@
+{"message":"bad_request","errors":[{"msg":"This empty field parameter is required","param":"selector","location":"body"},{"msg":"This required parameter does not exists","param":"selector","location":"body"},{"msg":"This url parameter is less than the required minimum of 5 characters","param":"selector","location":"body"}]}
