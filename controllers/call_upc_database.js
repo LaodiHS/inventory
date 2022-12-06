@@ -18,10 +18,10 @@ export async function call_upc_database(req, res) {
 
   const { first, last, email, salt } = req.user[0];
 
-  const compnay_product_upc_id = upc.slice(0, 6);
+  const company_product_upc_id = upc.slice(0, 6);
 
   try {
-    const file_path = `db/merchants/${email}/inventory/${compnay_product_upc_id}.json`;
+    const file_path = `db/merchants/${email}/inventory/${company_product_upc_id}.json`;
 
     if (await is_file(file_path)) {
       const user_products = await readJSONFile(file_path);
@@ -36,7 +36,7 @@ export async function call_upc_database(req, res) {
     // console.log("error", error);
   }
 
-  const upc_inventory_file = `db/upc/${compnay_product_upc_id}.json`;
+  const upc_inventory_file = `db/upc/${company_product_upc_id}.json`;
 
   const file_exists = await is_file(upc_inventory_file);
 
