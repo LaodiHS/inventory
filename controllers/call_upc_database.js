@@ -14,6 +14,7 @@ import { write_image_urls } from "../services/write_image_urls.js";
 import { static_url_end_point } from "../router/static_routes/static_routes.js";
 
 export async function call_upc_database(req, res) {
+  
   const upc = req.body.upc;
 
   const { first, last, email, salt } = req.user[0];
@@ -24,9 +25,11 @@ export async function call_upc_database(req, res) {
     const file_path = `db/merchants/${email}/inventory/${company_product_upc_id}.json`;
 
     if (await is_file(file_path)) {
+
       const user_products = await readJSONFile(file_path);
 
       if (user_products[upc]) {
+      
         res.status(200).json(user_products[upc]);
 
         return;
@@ -41,12 +44,14 @@ export async function call_upc_database(req, res) {
   const file_exists = await is_file(upc_inventory_file);
 
   if (file_exists) {
+
     try {
       const file = await readJSONFile(upc_inventory_file);
 
       const response_object = file[upc];
 
       if (response_object) {
+
         const items = response_object.items;
 
         const first_item = items[0];
@@ -56,24 +61,36 @@ export async function call_upc_database(req, res) {
         return;
       }
     } catch (error) {
+
       console.log("error", error);
+    
     }
+  
   }
 
   try {
+  
     let file = {};
 
     if (await is_file(upc_inventory_file)) {
+  
       file = await readJSONFile(upc_inventory_file);
+  
     } else {
+  
       await make_directory_paths(
+  
         upc_inventory_file.split("/").slice(0, -1).join("/")
-      );
-    }
+  
+        );
+  
+      }
 
     const call = await axios.get(
+  
       `https://api.upcitemdb.com/prod/trial/lookup?upc=${upc}`
-    );
+  
+      );
 
     const data = await call.data;
  
@@ -105,5 +122,7 @@ export async function call_upc_database(req, res) {
     res.status("400").send('UPC not available in our Database');
     
     console.log("call_upc_database_error:  ", error);
+
   }
+
 }

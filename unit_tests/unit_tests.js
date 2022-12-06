@@ -369,7 +369,7 @@ async (user_register) => {
     )
     const log= await login.data
 
-    console.log(log)
+    // console.log(log)
     user_register.check(response.status === 201);
 
     user_register.test(

@@ -162,7 +162,7 @@ export async function response(res, status_code, data) {
 
         } catch (error) {
 
-            console.log(error);
+            console.log('error--->', error);
 
         }
 

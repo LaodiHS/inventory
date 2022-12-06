@@ -120,7 +120,7 @@ export async function dynamic_routes(app) {
 
       res.status(200).json(user[user.length-1]);
     } catch (error) {
-      console.log('aythenticated', error);
+      console.log('auth error', error);
     }
   });
 

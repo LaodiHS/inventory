@@ -20,7 +20,7 @@ const { join, root_dir } = file_system();
 export default async function express_configuration(app) {
   app.use(middleware.cookie_parser());
 
-  app.use(middleware.cors({ credentials: true, origin: true }));
+  app.use(middleware.cors({ credentials: true, origin:'*' ,  'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));
 
   // app.use(function(req, res, next) {
   //   res.header("Access-Control-Allow-Origin", "http://localhost"); // update to match the domain you will make the request from
@@ -65,7 +65,7 @@ export default async function express_configuration(app) {
       cache: join(root_dir, "cache"),
       uglifyJsModule: middleware.uglifyEs,
       errorHandler: (errorInfo) => {
-        console.log("minfify error", errorInfo);
+        //console.log("minfify error", errorInfo);
       },
       jsMatch: /javascript/,
       cssMatch: /css/,
