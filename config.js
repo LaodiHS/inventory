@@ -6,7 +6,7 @@ import dot from "dotenv";
 export const database_tables = ["users", "logs"];
 
 
-let name = 'http://192.168.1.64:8080';
+let name = 'https://inventory2.onrender.com';
 if(process.env.PORT){
     name = 'https://inventory2.onrender.com'
 }
