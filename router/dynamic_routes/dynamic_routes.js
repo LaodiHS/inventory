@@ -49,8 +49,7 @@ export async function dynamic_routes(app) {
   });
 
   app.get("/tabs", (req, res, next) => {
-    console.log(res);
-    res.status(200).send("login success");
+    res.status(200).send("application start success");
     // console.log('authenticated:',req.isAuthenticated())
     //  res.render('home');
   });
@@ -76,7 +75,7 @@ export async function dynamic_routes(app) {
   app.post("/register", register_user_validate, validate, register_user);
 
   app.post("/authenticated", (req, res) => {
-    // console.log(req.isAuthenticated());
+
     console.log('user--->', req.user)
     if(req.user && req.user[0]){
     const { first, last, age, username, email, phone, postcode, city, housenumber } = req.user[0]
@@ -133,21 +132,6 @@ export async function dynamic_routes(app) {
 
 
 
-
-  const upload_multer_object = multer({
-    limits: { fileSize: 10000000 },
-
-    fileFilter(req, file, cb) {
-      console.log(file)
-      // if (!file.originalname.match(/\.(image_extensions.join("|"))$/)) {
-      //   return;
-
-      //   cb(new Error("Please upload a valid image file"));
-      // }
-
-      cb(undefined, true);
-    },
-  });
 
 
 

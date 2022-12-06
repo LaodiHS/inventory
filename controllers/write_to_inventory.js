@@ -22,9 +22,9 @@ export async function write_to_inventory(req, res) {
 
     let file = {};
 
-    const compnay_upc_id = upc.slice(0, 6);
+    const company_upc_id = upc.slice(0, 6);
     
-    const file_path = `db/merchants/${email}/inventory/${compnay_upc_id}.json`;
+    const file_path = `db/merchants/${email}/inventory/${company_upc_id}.json`;
 
     try {
    
