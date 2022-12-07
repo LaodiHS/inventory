@@ -26,6 +26,7 @@ export default async function express_configuration(app) {
     // db.loadOrigins is an example call to load
     // a list of origins from a backing database
   console.log('origin--->',origin);
+  const error = null;
       callback(error, origin);
 
     }), 'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));
