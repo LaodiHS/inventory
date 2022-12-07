@@ -12,7 +12,7 @@ import uglifyEs from "uglify-es"
 
 import flash from 'express-flash'
 
-import session from "express-session"
+
 import cors from 'cors';
 
 import {stripe} from './stripe.js';

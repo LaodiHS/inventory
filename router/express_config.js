@@ -6,7 +6,7 @@ import { middleware } from "../modules/middleware.js";
 import { file_system } from "../modules/file_system.js";
 import { initializePassport } from "../modules/passport_config.js";
 import { get_record } from "../modules/database_files.js";
-
+import session from 'cookie-session';
 import {
   checkAuthenticated,
   checkNotAuthenticated,
@@ -89,16 +89,18 @@ export default async function express_configuration(app) {
     async (email) => (await get_record("users", email)).find(email)
   );
 
-  const store = new middleware.express_session.MemoryStore();
+  // const store = new middleware.express_session.MemoryStore();
   app.use(
-    middleware.express_session({
+    // middleware.express_session
+    session({
       secret: "secret123",
-      resave: true,
+     // resave: true,
       saveUninitialized: true,
-      cookie: {
-        SameSite: "None",
-      },
-      store,
+      sameSite: 'none'
+      // cookie: {
+      //   SameSite: "None",
+      // },
+      // store,
     })
   );
 
