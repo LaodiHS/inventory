@@ -20,7 +20,7 @@ const { join, root_dir } = file_system();
 export default async function express_configuration(app) {
   app.use(middleware.cookie_parser());
 
-  app.use(middleware.cors({ credentials: true, origin:'*' ,  'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));
+  app.use(middleware.cors({ credentials: true , origin:'http://localhost:8100', 'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));
 
   // app.use(function(req, res, next) {
   //   res.header("Access-Control-Allow-Origin", "http://localhost"); // update to match the domain you will make the request from
