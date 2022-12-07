@@ -16,8 +16,10 @@ const { join, root_dir } = file_system();
  *
  * @export
  * @param { Object } app; express server instance
- */
+ */  
 export default async function express_configuration(app) {
+
+
   app.use(middleware.cookie_parser());
 
   app.use(middleware.cors({ credentials: true , origin:'http://localhost:8100', 'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));

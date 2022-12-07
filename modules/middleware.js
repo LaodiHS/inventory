@@ -37,7 +37,6 @@ uglifyEs,
 
 flash,
 passport,
-session,
 cors,
 stripe
 
