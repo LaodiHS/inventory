@@ -22,7 +22,13 @@ export default async function express_configuration(app) {
 
   app.use(middleware.cookie_parser());
 
-  app.use(middleware.cors({ credentials: true , origin:'http://localhost:8100', 'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));
+  app.use(middleware.cors({ credentials: true ,origin:((origin, callback) => {
+    // db.loadOrigins is an example call to load
+    // a list of origins from a backing database
+  console.log('origin--->',origin);
+      callback(error, origin);
+
+    }), 'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));
 
   // app.use(function(req, res, next) {
   //   res.header("Access-Control-Allow-Origin", "http://localhost"); // update to match the domain you will make the request from
