@@ -53,7 +53,7 @@
     "line-replace": "^2.0.1",
     "mockjs": "^1.1.0",
     "multer": "^1.4.5-lts.1",
-    "passport": "^0.6.0",
+    "passport": "^0.5.3",
     "passport-local": "^1.0.0",
     "pdf-parser": "^1.0.5",
     "pdf2json": "^2.0.1",
