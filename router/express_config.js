@@ -105,7 +105,7 @@ export default async function express_configuration(app) {
       secret: "secret123",
      // resave: true,
       saveUninitialized: true,
-      sameSite: 'none'
+      sameSite: 'lax'
       // cookie: {
       //   SameSite: "None",
       // },
