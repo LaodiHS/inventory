@@ -23,8 +23,8 @@ import {
 import Busboy from 'busboy';
 export function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    return next();
-    //res.status(200).send("authenticated");
+    //return next();
+    res.status(200).send("authenticated");
   }
   // res.status(200).send("not authenticated");
   res.redirect("/login");
