@@ -4,14 +4,14 @@ import { validate } from "../../services/response_service.js";
 
 import { gojos, gojos_selector, gojos_metrics } from "../../views/gojos.js";
 import { register_user_validate, register_user } from "../../views/register.js";
-import {join} from 'path';
-import fs from 'fs';
+import { join } from "path";
+import fs from "fs";
 import { valid_address } from "../../views/geoapify.js";
 import { middleware } from "../../modules/middleware.js";
 import { call_upc_database } from "../../controllers/call_upc_database.js";
 import { write_to_inventory } from "../../controllers/write_to_inventory.js";
 import { products } from "../../controllers/products.js";
-import multer  from "multer";
+import multer from "multer";
 import {
   make_directory_paths,
   is_directory,
@@ -20,7 +20,7 @@ import {
   readJSONFile,
   read_directory,
 } from "../../modules/file_system.js";
-import Busboy from 'busboy';
+import Busboy from "busboy";
 export function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     //return next();
@@ -42,9 +42,8 @@ export function checkNotAuthenticated(req, res, next) {
  * @param {Object} app client Object
  */
 export async function dynamic_routes(app) {
-
   app.get("/", (req, res, next) => {
-    res.status(200).send('success');
+    res.status(200).send("success");
     //  res.render('home');
   });
 
@@ -75,18 +74,39 @@ export async function dynamic_routes(app) {
   app.post("/register", register_user_validate, validate, register_user);
 
   app.post("/authenticated", (req, res) => {
-
-    console.log('user--->', req.user)
-    if(req.user && req.user[0]){
-    const { first, last, age, username, email, phone, postcode, city, housenumber } = req.user[0]
-    if (req.isAuthenticated()) {
-      res.status(200).json({first, last, age, username, email, phone, postcode, city, housenumber});
+    console.log("user--->", req.user);
+    if (req.user && req.user[0]) {
+      const {
+        first,
+        last,
+        age,
+        username,
+        email,
+        phone,
+        postcode,
+        city,
+        housenumber,
+      } = req.user[0];
+      if (req.isAuthenticated()) {
+        res
+          .status(200)
+          .json({
+            first,
+            last,
+            age,
+            username,
+            email,
+            phone,
+            postcode,
+            city,
+            housenumber,
+          });
+      } else {
+        res.status(400).send("unauthenticated");
+      }
     } else {
       res.status(400).send("unauthenticated");
     }
-  }else{
-     res.status(400).send("unauthenticated");
-  }
   });
 
   const calculateOrderAmount = (items) => {
@@ -118,9 +138,9 @@ export async function dynamic_routes(app) {
     try {
       const user = await readJSONFile(`db/merchants/${email}/user/user.json`);
 
-      res.status(200).json(user[user.length-1]);
+      res.status(200).json(user[user.length - 1]);
     } catch (error) {
-      console.log('auth error', error);
+      console.log("auth error", error);
     }
   });
 
@@ -130,28 +150,29 @@ export async function dynamic_routes(app) {
 
   app.post("/product", checkAuthenticated, products);
 
-
-
-
-
-
-
-app.post("/post_image", checkAuthenticated, (req, res, next) => {
-  if(req.user[0]){
-  const { first, last, email, salt } = req.user[0];
-  var busboy = Busboy({ headers: req.headers });
-  busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-    var saveTo = join('.', `db/${email}/images/${filename.filename}.${filename.mimeType.split('/').pop() }`);
-    console.log('Uploading: ' + saveTo);
-    file.pipe(fs.createWriteStream(saveTo));
+  app.post("/post_image", checkAuthenticated, (req, res, next) => {
+    if (req.user[0]) {
+      const { first, last, email, salt } = req.user[0];
+      var busboy = Busboy({ headers: req.headers });
+      busboy.on(
+        "file",
+        function (fieldname, file, filename, encoding, mimetype) {
+          var saveTo = join(
+            ".",
+            `db/${email}/images/${filename.filename}.${filename.mimeType
+              .split("/")
+              .pop()}`
+          );
+          console.log("Uploading: " + saveTo);
+          file.pipe(fs.createWriteStream(saveTo));
+        }
+      );
+      busboy.on("finish", function () {
+        console.log("Upload complete");
+        res.writeHead(200, { Connection: "close" });
+        res.end("That's all folks!");
+      });
+      return req.pipe(busboy);
+    }
   });
-  busboy.on('finish', function() {
-    console.log('Upload complete');
-    res.writeHead(200, { 'Connection': 'close' });
-    res.end("That's all folks!");
-  });
-  return req.pipe(busboy);
-  }
-});
-
 }
