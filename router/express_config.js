@@ -30,7 +30,7 @@ export default async function express_configuration(app) {
 
   app.use(middleware.cookie_parser());
 
-  app.use(middleware.cors({ credentials: true, methods:['GET', 'PUT', 'POST'], preflightContinue:true, allowedHeaders:['Content-Type','Authorization'], sameSite: 'lax', origin:(origin, callback) => {
+  app.use(middleware.cors({ credentials: true, methods:['GET', 'PUT', 'POST'], preflightContinue:true, allowedHeaders:['Origin','Access-Control-Request-Headers','Access-Control-Request-Method','Host','Content-Type','Authorization'], sameSite: 'lax', origin:(origin, callback) => {
 
 if(allowedOrigins.includes(origin) || true ){
   callback(null, true);
