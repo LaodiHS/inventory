@@ -32,7 +32,7 @@ export default async function express_configuration(app) {
 
   app.use(middleware.cors({ credentials: true, methods:['GET', 'PUT', 'POST'], preflightContinue:true, allowedHeaders:['Content-Type','Authorization'], sameSite: 'lax', origin:(origin, callback) => {
 
-if(allowedOrigins.includes(origin)){
+if(allowedOrigins.includes(origin) || true ){
   callback(null, true);
 
 }else{
