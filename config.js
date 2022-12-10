@@ -6,9 +6,10 @@ import dot from "dotenv";
 export const database_tables = ["users", "logs"];
 
 
-let name = 'https://inventory2.onrender.com';
+let name = 'http://localhost';
 if(process.env.PORT){
     name = 'https://inventory2.onrender.com'
+    console.log('server name', name);
 }
 
 
