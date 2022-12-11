@@ -39,16 +39,9 @@ if(allowedOrigins.includes(origin) || true ){
   callback(new Error('Origin not allowed by Cors'));
 }
 
-  }, 'methods':  'GET,HEAD,PUT,PATCH,POST,DELETE'}));
+  }}));
 
-  // app.use(function(req, res, next) {
-  //   res.header("Access-Control-Allow-Origin", "http://localhost"); // update to match the domain you will make the request from
-  //   res.header("Vary", "Origin")
-  //   res.header("Access-Control-Allow-Headers", "Accept");
-  //   res.header("Access-Control-Allow-Credentials", "true");
 
-  //   next();
-  // });
 
   app.use(express.json());
   // function logResponseBody(req, res, next) {
@@ -116,11 +109,14 @@ if(allowedOrigins.includes(origin) || true ){
       secret: "secret123",
       // resave: true,
      //secure: false,
-      //httpOnly:false,
+      //
       saveUninitialized: true,
-      sameSite: 'lax',
+   
        cookie: {
-       SameSite: "None",
+    
+       sameSite: "lax",
+
+       maxAge:60000
      },
       // store,
     })
@@ -142,7 +138,6 @@ if(allowedOrigins.includes(origin) || true ){
     "/login",
     middleware.passport.authenticate("local", {
       successRedirect: "/tabs",
-
       failureRedirect: "/authenticated",
       failureFlash: true,
     })
