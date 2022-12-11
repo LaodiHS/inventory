@@ -32,7 +32,7 @@ export default async function express_configuration(app) {
 
   app.use(middleware.cors({ credentials: true, methods:['GET','HEAD','PUT','PATCH','POST','DELETE'],  preflightContinue:true, allowedHeaders:['Content-Type','Authorization'], sameSite: 'lax', origin:(origin, callback) => {
 
-if(allowedOrigins.includes(origin) || true ){
+if(allowedOrigins.includes(origin) ){
   callback(null, true);
 
 }else{
@@ -107,9 +107,10 @@ if(allowedOrigins.includes(origin) || true ){
     //session
     ({
       secret: "secret123",
-      // resave: true,
+       resave: true,
      //secure: false,
       //
+     
       saveUninitialized: true,
    
        cookie: {

@@ -23,9 +23,9 @@ import {
 import Busboy from "busboy";
 export function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    //return next();
+    return next();
 
-    res.status(200).send("authenticated");
+    //res.status(200).send("authenticated");
   }
   // res.status(200).send("not authenticated");
   res.redirect("/login");
@@ -49,7 +49,10 @@ export async function dynamic_routes(app) {
   });
 
   app.get("/tabs", (req, res, next) => {
-    res.status(200).send("application start success");
+
+
+
+    res.status(200).json(req.cookies);
     // console.log('authenticated:',req.isAuthenticated())
     //  res.render('home');
   });
@@ -75,7 +78,7 @@ export async function dynamic_routes(app) {
   app.post("/register", register_user_validate, validate, register_user);
 
   app.post("/authenticated", (req, res) => {
-    console.log("user--->", req.user);
+
     if (req.user && req.user[0]) {
       const {
         first,
